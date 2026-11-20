@@ -1,0 +1,24 @@
+{
+  "_comment": "Example config for agent-process-supervisor. Copy to config.json and edit. Relative paths are resolved against the directory containing this file. ${VAR} and ~ are expanded.",
+  "backoff": {
+    "base_seconds": 60,
+    "max_seconds": 480,
+    "multiplier": 2
+  },
+  "interval_seconds": 30,
+  "processes": [
+    {
+      "command": [
+        "python3",
+        "examples/dummy-worker.py"
+      ],
+      "cwd": ".",
+      "env": {},
+      "log_file": "logs/dummy-worker.log",
+      "name": "dummy-worker",
+      "restart_policy": "always",
+      "type": "command"
+    }
+  ],
+  "state_dir": "~/.local/state/agent-process-supervisor"
+}
